@@ -30,9 +30,9 @@ int StackPop (Stack* stack, int* value);
 
 int* StackResize (Stack* stack);
 
-int PrintStack__ (Stack* stack);
-
 int StackTest__ (Stack* stack);
+
+int StackError (Stack* stack);
 
 int main ()
 {
@@ -87,7 +87,10 @@ int StackPush (Stack* stack, int value)
 	if(stack->size == -1)
 		return STK_DESTROYED;
 
-	stack->data = StackResize(stack);
+	if (stack->size >= stack->capacity)
+	{
+		stack->data = StackResize(stack);
+	}
 
 	stack->data[stack->size++] = value;
 
@@ -104,8 +107,11 @@ int StackPop (Stack* stack, int* value)
 
 	if(stack->size <= 0)
 		return 	STK_UNDERFL;
-
-	stack->data = StackResize(stack);
+	
+	if (stack->size * 2 == stack->capacity)
+	{
+		stack->data = StackResize(stack);
+	}
 
 	*value = stack->data[--stack->size];
 
@@ -142,20 +148,6 @@ int* StackResize (Stack* stack)
 	return new_adress;
 }
 
-// int PrintStack__ (Stack* stack)
-// {
-// 	if(stack == NULL)
-// 		return STK_IS_NULL_PTR;
-
-// 	printf("capacity = %ld, size = %ld\n\n", stack->capacity, stack->size);
-
-// 	for(size_t i = 0; i < stack->size; i++)
-// 		printf("%d ", stack->data[i]);
-// 	printf("\n\n");
-
-// 	return 0;
-// }
-
 int StackTest__ (Stack *stack)
 {
 	if(stack == NULL)
@@ -163,55 +155,72 @@ int StackTest__ (Stack *stack)
 
 	FILE* fp = fopen("Test.txt", "w");
 
- 	int a = 0, n = 10;
+	int element = 0;
+	int n_of_tests = 10, prblm_sz = 5;
 
- 	fprintf(fp, "\npush and pop\n");
+	fprintf(fp, "\n\n\tPush and Pop\n\n");
 
- 	for (int i = 0; i < n; i++) //Пуш и поп n элементов
+	for (int i = 0; i < n_of_tests; i++) //Пуш и поп n элементов около size = 0
  	{
+		fprintf(fp, "\n#%d\n", i + 1);
+		fprintf(fp, "Before Actions | capacity: %ld, size: %ld;\n", 
+			stack->capacity, stack->size);
+
+		StackPush(stack, i);
+		fprintf(fp, "After Push     | capacity: %ld, size: %ld;\n", 
+			stack->capacity, stack->size);
+
+		StackPop(stack, &element);
+		fprintf(fp, "After Pop      | capacity: %ld, size: %ld;\n", 
+			stack->capacity, stack->size);
+
+		fprintf(fp, "Push Elem = %d , Pop Elem = %d\n", i, element);
+	}
+
+  	fprintf(fp, "\n\n\tPush and Pop in problem size\n\n");
+
+ 	for (int i = 0; i < prblm_sz; i++) //Пуш элементов до problem size
+ 	{
+ 		StackPush(stack, i);	
+ 	}
+
+  	for (int i = 0; i < n_of_tests; i++) //Пуш и поп n элементов около problem size
+ 	{
+		fprintf(fp, "\n#%d\n", i + 1);
+ 		fprintf(fp, "Before Actions | capacity: %ld, size: %ld;\n",
+  			stack->capacity, stack->size);
+
  		StackPush(stack, i);
- 		StackPop(stack, &a);
- 		fprintf(fp, "capacity: %ld, size: %ld; ", stack->capacity, stack->size);
- 		fprintf(fp, "#%d = %d\n", i + 1, a);
- 	}
+  		fprintf(fp, "After Push     | capacity: %ld, size: %ld;\n", 
+  			stack->capacity, stack->size);
 
-  	fprintf(fp, "\npush and pop in problem size\n");
+		StackPop(stack, &element);
+		fprintf(fp, "After Pop      | capacity: %ld, size: %ld;\n", 
+			stack->capacity, stack->size);
 
- 	for (int i = 0; i < n; i++) //Пуш n элементов подряд
- 	{
- 		StackPush(stack, i);
- 		fprintf(fp, "capacity: %ld, size: %ld;\n", stack->capacity, stack->size);		
- 	}
-
-  	for (int i = 0; i < n; i++) //Пуш и поп n элементов
- 	{
- 		StackPush(stack, i);
- 		StackPop(stack, &a);
- 		fprintf(fp, "capacity: %ld, size: %ld; ", stack->capacity, stack->size);
- 		fprintf(fp, "#%d = %d\n", i + 1, a);
+		fprintf(fp, "#%d = %d\n", i + 1, element);
  	}
 
 
-   	fprintf(fp, "\npop\n");
- 	for (int i = 0; i < n; i++) //Поп n элементов подряд
- 	{
- 		StackPop(stack, &a);
- 		fprintf(fp, "capacity: %ld, size: %ld; ", stack->capacity, stack->size);
- 		fprintf(fp, "#%d = %d\n", n - i, a);
+   	fprintf(fp, "\n\n\tPop all\n\n");
+ 	for (int i = 0; i < n_of_tests; i++) //Поп n элементов подряд
+	{
+		fprintf(fp, "\n#%d\n", i + 1);
+		fprintf(fp, "Before Actions | capacity: %ld, size: %ld;\n", 
+			stack->capacity, stack->size);
+
+		StackPop(stack, &element);
+		fprintf(fp, "After Pop      | capacity: %ld, size: %ld;\n", 
+			stack->capacity, stack->size);
+
+		fprintf(fp, "capacity: %ld, size: %ld; ", stack->capacity, stack->size);
+		fprintf(fp, "#%d = %d\n", n_of_tests - i, element);
  	}
 
-	// StackPush(stack, 2); //2 5 10 3
-	// StackPop(stack, &a);
-	// StackPush(stack, 3);
-	// StackPush(stack, 5);
-	// StackPop(stack, &b);
-	// StackPush(stack, 10);
-	// StackPop(stack, &c);
-	// StackPop(stack, &d);
-	// StackPush(stack, 5);
-	// StackPush(stack, 5);
+	return 0;
+}
 
-	// printf("%d, %d, %d, %d\n", a, b, c, d);
-
+int StackError (Stack* stack)
+{
 	return 0;
 }
