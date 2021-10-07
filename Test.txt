@@ -68,115 +68,115 @@ Push Elem = 9 , Pop Elem = 9
 
 
 #1
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#1 = 0
+Before Actions | capacity: 8, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 0 , Pop Elem = 0
 
 #2
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#2 = 1
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 1 , Pop Elem = 1
 
 #3
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#3 = 2
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 2 , Pop Elem = 2
 
 #4
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#4 = 3
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 3 , Pop Elem = 3
 
 #5
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#5 = 4
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 4 , Pop Elem = 4
 
 #6
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#6 = 5
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 5 , Pop Elem = 5
 
 #7
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#7 = 6
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 6 , Pop Elem = 6
 
 #8
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#8 = 7
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 7 , Pop Elem = 7
 
 #9
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#9 = 8
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 8 , Pop Elem = 8
 
 #10
-Before Actions | capacity: 8, size: 5;
-After Push     | capacity: 8, size: 6;
-After Pop      | capacity: 8, size: 5;
-#10 = 9
+Before Actions | capacity: 16, size: 8;
+After Push     | capacity: 16, size: 9;
+After Pop      | capacity: 16, size: 8;
+Push Elem = 9 , Pop Elem = 9
 
 
 	Pop all
 
 
 #1
-Before Actions | capacity: 8, size: 5;
-After Pop      | capacity: 8, size: 4;
-capacity: 8, size: 4; #10 = 4
+Before Actions | capacity: 16, size: 8;
+After Pop      | capacity: 8, size: 7;
+Pop Elem = 7
 
 #2
-Before Actions | capacity: 8, size: 4;
-After Pop      | capacity: 4, size: 3;
-capacity: 4, size: 3; #9 = 3
+Before Actions | capacity: 8, size: 7;
+After Pop      | capacity: 8, size: 6;
+Pop Elem = 6
 
 #3
-Before Actions | capacity: 4, size: 3;
-After Pop      | capacity: 4, size: 2;
-capacity: 4, size: 2; #8 = 2
+Before Actions | capacity: 8, size: 6;
+After Pop      | capacity: 8, size: 5;
+Pop Elem = 5
 
 #4
-Before Actions | capacity: 4, size: 2;
-After Pop      | capacity: 2, size: 1;
-capacity: 2, size: 1; #7 = 1
+Before Actions | capacity: 8, size: 5;
+After Pop      | capacity: 8, size: 4;
+Pop Elem = 4
 
 #5
-Before Actions | capacity: 2, size: 1;
-After Pop      | capacity: 1, size: 0;
-capacity: 1, size: 0; #6 = 0
+Before Actions | capacity: 8, size: 4;
+After Pop      | capacity: 4, size: 3;
+Pop Elem = 3
 
 #6
-Before Actions | capacity: 1, size: 0;
-After Pop      | capacity: 1, size: 0;
-capacity: 1, size: 0; #5 = 0
+Before Actions | capacity: 4, size: 3;
+After Pop      | capacity: 4, size: 2;
+Pop Elem = 2
 
 #7
-Before Actions | capacity: 1, size: 0;
-After Pop      | capacity: 1, size: 0;
-capacity: 1, size: 0; #4 = 0
+Before Actions | capacity: 4, size: 2;
+After Pop      | capacity: 2, size: 1;
+Pop Elem = 1
 
 #8
-Before Actions | capacity: 1, size: 0;
+Before Actions | capacity: 2, size: 1;
 After Pop      | capacity: 1, size: 0;
-capacity: 1, size: 0; #3 = 0
+Pop Elem = 0
 
 #9
 Before Actions | capacity: 1, size: 0;
 After Pop      | capacity: 1, size: 0;
-capacity: 1, size: 0; #2 = 0
+Pop Elem = 0
 
 #10
 Before Actions | capacity: 1, size: 0;
 After Pop      | capacity: 1, size: 0;
-capacity: 1, size: 0; #1 = 0
+Pop Elem = 0
