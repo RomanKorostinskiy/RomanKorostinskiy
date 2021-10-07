@@ -1,26 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
+#include <limits.h>
+
+// #define DEBUG //#ifndef #endif
 
 enum Errors
 {
-	STK_IS_NULL_PTR,
-	STK_OVERFL,
-	STK_UNDERFL,
-	STK_DESTROYED,
+	STK_IS_NULL_PTR  = 1,
+	STK_OVERFL       = 2,
+	STK_UNDERFL      = 3,
+	STK_DESTROYED    = 4,
+	DATA_IS_NULL_PTR = 5,
 };
 
-const int *UNAVAILABLE_ADR = (int*) 1;
-const size_t START_CAPACITY = 1;
+typedef int data_t;
 
-typedef struct Stack
+const int *UNAVAILABLE_ADR = (int*) 1;
+const int START_CAPACITY = 1;
+
+typedef struct Stack_t
 {
-	size_t capacity;
-	int* data;
-	size_t size;
+	int capacity = 0;
+	data_t* data = nullptr;
+	int size = 0;
 } Stack;
 
-int StackCtor (Stack* stack);
+int StackCtor (Stack* stack, int capacity = START_CAPACITY);
 
 int StackDtor (Stack* stack);
 
@@ -47,14 +54,12 @@ int main ()
 	return 0;
 }
 
-int StackCtor (Stack* stack)
+int StackCtor (Stack* stack, int capacity) //TODO аргумент по умолчанию
 {
-	if(stack == NULL)
-		return STK_IS_NULL_PTR;
 
-	stack->capacity = START_CAPACITY;
+	stack->capacity = capacity;
 
-	stack->data = (int*) calloc (stack->capacity, sizeof(int));
+	stack->data = (int*) calloc (capacity, sizeof(int)); //TODO проверка возвращаемого значения calloc
 
 	stack->size = 0;
 
@@ -66,8 +71,8 @@ int StackDtor (Stack* stack)
 	if(stack == NULL)
 		return STK_IS_NULL_PTR;
 
-	if(stack->size == -1)
-		return STK_DESTROYED;
+	// if(stack->size == -1)
+	// 	return STK_DESTROYED; //проверется в error
 
 	memset (stack->data, 0xF0F0F0F0, stack->capacity);
 	free(stack->data);
@@ -81,13 +86,10 @@ int StackDtor (Stack* stack)
 
 int StackPush (Stack* stack, int value)
 {
-	if(stack == NULL)
+	if(stack == nullptr)
 		return STK_IS_NULL_PTR;
 
-	if(stack->size == -1)
-		return STK_DESTROYED;
-
-	if (stack->size >= stack->capacity)
+	if (stack->size == stack->capacity)
 	{
 		stack->data = StackResize(stack);
 	}
@@ -99,7 +101,9 @@ int StackPush (Stack* stack, int value)
 
 int StackPop (Stack* stack, int* value)
 {
-	if(stack == NULL)
+	assert(value);
+
+	if(!stack) //
 		return STK_IS_NULL_PTR;
 
 	if(stack->size == -1)
@@ -108,7 +112,7 @@ int StackPop (Stack* stack, int* value)
 	if(stack->size <= 0)
 		return 	STK_UNDERFL;
 	
-	if (stack->size * 2 == stack->capacity)
+	if (stack->size * 2 == stack->capacity) //TODO придумать константу вместо 2
 	{
 		stack->data = StackResize(stack);
 	}
@@ -122,11 +126,7 @@ int StackPop (Stack* stack, int* value)
 
 int* StackResize (Stack* stack)
 {
-	// if(stack == NULL)
-	// 	return STK_IS_NULL_PTR;
-
-	// if(stack->size == -1)
-	// 	return STK_DESTROYED;
+	//проверки
 
 	int* new_adress = stack->data;
 
@@ -134,10 +134,10 @@ int* StackResize (Stack* stack)
 	{
 		stack->capacity *= 2;
 
-		new_adress = (int*) realloc(stack->data, 
+		new_adress = (int*) realloc(stack->data, //TODO проверка возвращаемого значения realloc
 			(stack->capacity) * sizeof(int));
 	}
-	else if (stack->size * 2 == stack->capacity) //TODO проблемка
+	else if (stack->size * 2 == stack->capacity)
 	{
 		stack->capacity /= 2;
 
@@ -156,22 +156,22 @@ int StackTest__ (Stack *stack)
 	FILE* fp = fopen("Test.txt", "w");
 
 	int element = 0;
-	int n_of_tests = 10, prblm_sz = 5;
+	int n_of_tests = 10, prblm_sz = 8;
 
 	fprintf(fp, "\n\n\tPush and Pop\n\n");
 
 	for (int i = 0; i < n_of_tests; i++) //Пуш и поп n элементов около size = 0
  	{
 		fprintf(fp, "\n#%d\n", i + 1);
-		fprintf(fp, "Before Actions | capacity: %ld, size: %ld;\n", 
+		fprintf(fp, "Before Actions | capacity: %d, size: %d;\n", 
 			stack->capacity, stack->size);
 
 		StackPush(stack, i);
-		fprintf(fp, "After Push     | capacity: %ld, size: %ld;\n", 
+		fprintf(fp, "After Push     | capacity: %d, size: %d;\n", 
 			stack->capacity, stack->size);
 
 		StackPop(stack, &element);
-		fprintf(fp, "After Pop      | capacity: %ld, size: %ld;\n", 
+		fprintf(fp, "After Pop      | capacity: %d, size: %d;\n", 
 			stack->capacity, stack->size);
 
 		fprintf(fp, "Push Elem = %d , Pop Elem = %d\n", i, element);
@@ -187,18 +187,18 @@ int StackTest__ (Stack *stack)
   	for (int i = 0; i < n_of_tests; i++) //Пуш и поп n элементов около problem size
  	{
 		fprintf(fp, "\n#%d\n", i + 1);
- 		fprintf(fp, "Before Actions | capacity: %ld, size: %ld;\n",
+ 		fprintf(fp, "Before Actions | capacity: %d, size: %d;\n",
   			stack->capacity, stack->size);
 
  		StackPush(stack, i);
-  		fprintf(fp, "After Push     | capacity: %ld, size: %ld;\n", 
+  		fprintf(fp, "After Push     | capacity: %d, size: %d;\n", 
   			stack->capacity, stack->size);
 
 		StackPop(stack, &element);
-		fprintf(fp, "After Pop      | capacity: %ld, size: %ld;\n", 
+		fprintf(fp, "After Pop      | capacity: %d, size: %d;\n", 
 			stack->capacity, stack->size);
 
-		fprintf(fp, "#%d = %d\n", i + 1, element);
+		fprintf(fp, "Push Elem = %d , Pop Elem = %d\n", i, element);
  	}
 
 
@@ -206,15 +206,14 @@ int StackTest__ (Stack *stack)
  	for (int i = 0; i < n_of_tests; i++) //Поп n элементов подряд
 	{
 		fprintf(fp, "\n#%d\n", i + 1);
-		fprintf(fp, "Before Actions | capacity: %ld, size: %ld;\n", 
+		fprintf(fp, "Before Actions | capacity: %d, size: %d;\n", 
 			stack->capacity, stack->size);
 
 		StackPop(stack, &element);
-		fprintf(fp, "After Pop      | capacity: %ld, size: %ld;\n", 
+		fprintf(fp, "After Pop      | capacity: %d, size: %d;\n", 
 			stack->capacity, stack->size);
 
-		fprintf(fp, "capacity: %ld, size: %ld; ", stack->capacity, stack->size);
-		fprintf(fp, "#%d = %d\n", n_of_tests - i, element);
+		fprintf(fp, "Pop Elem = %d\n", element);
  	}
 
 	return 0;
@@ -222,5 +221,20 @@ int StackTest__ (Stack *stack)
 
 int StackError (Stack* stack)
 {
+	if (!stack)
+		return STK_IS_NULL_PTR;
+
+	if (!stack->data)
+		return DATA_IS_NULL_PTR;
+
+	if (stack->size == -1)
+		return STK_DESTROYED;
+
+	if(stack->size < 0)
+		return 	STK_UNDERFL;
+
+	if(stack->size > stack->capacity)
+		return 	STK_OVERFL;
+
 	return 0;
 }
