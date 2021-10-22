@@ -8,7 +8,7 @@ int main ()
 
 	StackCtor(&stack, &error_code);
 
-	StackTestInt(&stack);
+	StackTestInt(&stack, &error_code);
 
 	StackDtor(&stack, &error_code);
 

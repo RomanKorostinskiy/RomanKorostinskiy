@@ -64,6 +64,50 @@ After Pop      | capacity: 1, size: 0;
 Push Elem = 9 , Pop Elem = 9
 
 
+	Push elems to problem size
+
+
+#1
+Before Actions | capacity: 1, size: 0;
+After Push     | capacity: 1, size: 1;
+Push Elem = 10
+
+#2
+Before Actions | capacity: 1, size: 1;
+After Push     | capacity: 2, size: 2;
+Push Elem = 11
+
+#3
+Before Actions | capacity: 2, size: 2;
+After Push     | capacity: 4, size: 3;
+Push Elem = 12
+
+#4
+Before Actions | capacity: 4, size: 3;
+After Push     | capacity: 4, size: 4;
+Push Elem = 13
+
+#5
+Before Actions | capacity: 4, size: 4;
+After Push     | capacity: 8, size: 5;
+Push Elem = 14
+
+#6
+Before Actions | capacity: 8, size: 5;
+After Push     | capacity: 8, size: 6;
+Push Elem = 15
+
+#7
+Before Actions | capacity: 8, size: 6;
+After Push     | capacity: 8, size: 7;
+Push Elem = 16
+
+#8
+Before Actions | capacity: 8, size: 7;
+After Push     | capacity: 8, size: 8;
+Push Elem = 17
+
+
 	Push and Pop in problem size
 
 
@@ -71,61 +115,61 @@ Push Elem = 9 , Pop Elem = 9
 Before Actions | capacity: 8, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 0 , Pop Elem = 0
+Push Elem = 18 , Pop Elem = 18
 
 #2
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 1 , Pop Elem = 1
+Push Elem = 19 , Pop Elem = 19
 
 #3
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 2 , Pop Elem = 2
+Push Elem = 20 , Pop Elem = 20
 
 #4
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 3 , Pop Elem = 3
+Push Elem = 21 , Pop Elem = 21
 
 #5
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 4 , Pop Elem = 4
+Push Elem = 22 , Pop Elem = 22
 
 #6
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 5 , Pop Elem = 5
+Push Elem = 23 , Pop Elem = 23
 
 #7
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 6 , Pop Elem = 6
+Push Elem = 24 , Pop Elem = 24
 
 #8
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 7 , Pop Elem = 7
+Push Elem = 25 , Pop Elem = 25
 
 #9
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 8 , Pop Elem = 8
+Push Elem = 26 , Pop Elem = 26
 
 #10
 Before Actions | capacity: 16, size: 8;
 After Push     | capacity: 16, size: 9;
 After Pop      | capacity: 16, size: 8;
-Push Elem = 9 , Pop Elem = 9
+Push Elem = 27 , Pop Elem = 27
 
 
 	Pop all
@@ -134,49 +178,49 @@ Push Elem = 9 , Pop Elem = 9
 #1
 Before Actions | capacity: 16, size: 8;
 After Pop      | capacity: 8, size: 7;
-Pop Elem = 7
+Pop Elem = 17
 
 #2
 Before Actions | capacity: 8, size: 7;
 After Pop      | capacity: 8, size: 6;
-Pop Elem = 6
+Pop Elem = 16
 
 #3
 Before Actions | capacity: 8, size: 6;
 After Pop      | capacity: 8, size: 5;
-Pop Elem = 5
+Pop Elem = 15
 
 #4
 Before Actions | capacity: 8, size: 5;
 After Pop      | capacity: 8, size: 4;
-Pop Elem = 4
+Pop Elem = 14
 
 #5
 Before Actions | capacity: 8, size: 4;
 After Pop      | capacity: 4, size: 3;
-Pop Elem = 3
+Pop Elem = 13
 
 #6
 Before Actions | capacity: 4, size: 3;
 After Pop      | capacity: 4, size: 2;
-Pop Elem = 2
+Pop Elem = 12
 
 #7
 Before Actions | capacity: 4, size: 2;
 After Pop      | capacity: 2, size: 1;
-Pop Elem = 1
+Pop Elem = 11
 
 #8
 Before Actions | capacity: 2, size: 1;
 After Pop      | capacity: 1, size: 0;
-Pop Elem = 0
+Pop Elem = 10
 
 #9
 Before Actions | capacity: 1, size: 0;
-After Pop      | capacity: 1, size: 0;
-Pop Elem = 0
+After Pop      | capacity: 1, size: -1;
+Pop Elem = -1092960550
 
 #10
-Before Actions | capacity: 1, size: 0;
-After Pop      | capacity: 1, size: 0;
-Pop Elem = 0
+Before Actions | capacity: 1, size: -1;
+After Pop      | capacity: 1, size: -1;
+Pop Elem = -1092960550
