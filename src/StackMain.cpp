@@ -8,7 +8,17 @@ int main ()
 
 	StackCtor(&stack, &error_code);
 
+//    StackStructHack(&stack);
+
+    StackDataHack(&stack);
+
+#ifdef INT_DATA
+    StackTestInt(&stack, &error_code);
+#endif
+
+#ifdef FLOAT_DATA
     StackTestFloat(&stack, &error_code);
+#endif
 
 	StackDtor(&stack, &error_code);
 

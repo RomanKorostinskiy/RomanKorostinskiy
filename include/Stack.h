@@ -21,7 +21,16 @@ enum Stack_errors
     HASH_BAD         = 256,
 };
 
-typedef int    data_t;
+#define INT_DATA
+
+#ifdef FLOAT_DATA
+typedef double data_t;
+#endif
+
+#ifdef INT_DATA
+typedef int data_t;
+#endif
+
 typedef size_t canary_t;
 typedef size_t hash_t;
 
@@ -29,7 +38,7 @@ typedef size_t hash_t;
 extern const int    START_CAPACITY;
 extern const int    CAPACITY_STEP;
 extern const size_t CANARY_CONSTANT;
-extern const int*   UNAVAILABLE_ADR;
+extern const data_t*   UNAVAILABLE_ADR;
 extern const size_t DATA_SHIFT;
 
 typedef struct Stack_t
@@ -130,3 +139,7 @@ void StackDump (Stack* stack, int errors, const char* current_file, const char* 
 int StackTestInt (Stack* stack, int* errors);
 
 int StackTestFloat (Stack* stack, int* errors);
+
+void StackStructHack (Stack* stack);
+
+void StackDataHack (Stack* stack);
