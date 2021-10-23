@@ -1,4 +1,4 @@
-#include "Stack.h"
+#include "../include/Stack.h"
 
 int main ()
 {
@@ -8,7 +8,7 @@ int main ()
 
 	StackCtor(&stack, &error_code);
 
-	StackTestInt(&stack, &error_code);
+    StackTestFloat(&stack, &error_code);
 
 	StackDtor(&stack, &error_code);
 

@@ -1,5 +1,4 @@
-#ifndef Stack_h
-#define Stack_h
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,6 +18,7 @@ enum Stack_errors
 	STK_DOUBLE_CTED  = 32,
     STRCT_CANARY_BAD = 64,
     DATA_CANARY_BAD  = 128,
+    HASH_BAD         = 256,
 };
 
 typedef int    data_t;
@@ -30,6 +30,7 @@ extern const int    START_CAPACITY;
 extern const int    CAPACITY_STEP;
 extern const size_t CANARY_CONSTANT;
 extern const int*   UNAVAILABLE_ADR;
+extern const size_t DATA_SHIFT;
 
 typedef struct Stack_t
 {
@@ -45,47 +46,63 @@ typedef struct Stack_t
 } Stack;
 
 #define STACK_CTOR_CHECK                                \
+    *errors = 0;							            \
+                                                        \
 	StackCtorCheck(stack, errors);				        \
 												        \
 	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
 												        \
 	if (*errors != 0)							        \
 	{											        \
-		*errors = 0;							        \
 		return 1;								        \
 	}											        \
 
 #define STACK_ERROR_CHECK                               \
+    *errors = 0;                                        \
+                                                        \
 	StackErrorCheck(stack, errors);				        \
 												        \
 	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
 												        \
 	if (*errors != 0)							        \
 	{											        \
-		*errors = 0;							        \
 		return 1;					                    \
 	}										            \
 
 #define STACK_RESIZE_ERROR_CHECK                        \
+    *errors = 0;                                        \
+                                                        \
 	StackErrorCheck(stack, errors);				        \
 												        \
 	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
 												        \
 	if (*errors != 0)							        \
 	{											        \
-		*errors = 0;							        \
 		return nullptr;					                \
 	}                                                   \
 
 #define STACK_POP_ERROR_CHECK                           \
-	StackErrorCheck(stack, errors);				        \
+    *errors = 0;                                        \
+                                                        \
+	StackPopCheck(stack, errors);				        \
 												        \
 	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
 												        \
 	if (*errors != 0)							        \
 	{											        \
-		*errors = 0;							        \
 		return 0xBEDABEDA;					            \
+	}                                                   \
+
+#define STACK_DTOR_ERROR_CHECK                          \
+    *errors = 0;                                        \
+                                                        \
+	StackDtorCheck(stack, errors);				        \
+												        \
+	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
+                                                        \
+	if (*errors != 0)							        \
+	{											        \
+		return 1;					                    \
 	}                                                   \
 
 int StackCtor (Stack* stack, int* errors, int capacity = START_CAPACITY);
@@ -98,14 +115,18 @@ data_t StackPop (Stack* stack, int* errors);
 
 data_t* StackResize (Stack* stack, int* errors);
 
+size_t StackHash (Stack* stack);
+
 int StackErrorCheck (Stack* stack, int* errors);
 
 int StackCtorCheck(Stack* stack, int* errors);
+
+int StackDtorCheck (Stack* stack, int* errors);
+
+int StackPopCheck (Stack* stack, int* errors);
 
 void StackDump (Stack* stack, int errors, const char* current_file, const char* current_function);
 
 int StackTestInt (Stack* stack, int* errors);
 
-int StackTestFloat (Stack* stack);
-
-#endif
+int StackTestFloat (Stack* stack, int* errors);
