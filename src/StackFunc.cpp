@@ -262,7 +262,7 @@ int StackDtorCheck (Stack* stack, int* errors)
 
 void StackDump (Stack* stack, int errors, const char* current_file, const char* current_function)
 {
-	FILE* dump_file = fopen("../test/Dump.txt", "a");
+	FILE* dump_file = fopen("../test/Dump.txt", "a"); //TODO передавать pid в имя файла
 
     if (errors != 0)
     {

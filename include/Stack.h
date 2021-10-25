@@ -6,8 +6,6 @@
 #include <assert.h>
 #include <limits.h>
 
-// #define DEBUG //#ifndef #endif
-
 enum Stack_errors
 {
 	STK_IS_NULL_PTR  = 1,
@@ -39,7 +37,6 @@ extern const int    START_CAPACITY;
 extern const int    CAPACITY_STEP;
 extern const size_t CANARY_CONSTANT;
 extern const data_t*   UNAVAILABLE_ADR;
-extern const size_t DATA_SHIFT;
 
 typedef struct Stack_t
 {
@@ -54,65 +51,89 @@ typedef struct Stack_t
     canary_t canary_right = 0;
 } Stack;
 
-#define STACK_CTOR_CHECK                                \
-    *errors = 0;							            \
+#define STACK_CTOR_CHECK()                              \
+do                                                      \
+{                                                       \
+    *errors = 0;                                        \
                                                         \
-	StackCtorCheck(stack, errors);				        \
-												        \
-	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
-												        \
-	if (*errors != 0)							        \
-	{											        \
-		return 1;								        \
-	}											        \
+    StackCtorCheck(stack, errors);                      \
+                                                        \
+    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+                                                        \
+    if (*errors != 0)                                   \
+    {                                                   \
+        return 1;                                       \
+    }                                                   \
+} while (0)
 
-#define STACK_ERROR_CHECK                               \
+
+#define STACK_ERROR_CHECK()                             \
+do                                                      \
+{                                                       \
+    *errors = 0;                                        \
+                                                        \
+	StackErrorCheck(stack, errors);	                    \
+                                                        \
+    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+                                                        \
+    if (*errors != 0)                                   \
+    {                                                   \
+        return 1;                                       \
+    }                                                   \
+} while (0)
+
+#define STACK_RESIZE_ERROR_CHECK()                      \
+do                                                      \
+{                                                       \
+    *errors = 0;                                        \
+                                                        \
+	StackErrorCheck(stack, errors);	                    \
+                                                        \
+    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+                                                        \
+    if (*errors != 0)                                   \
+    {                                                   \
+        return nullptr;	                                \
+    }                                                   \
+} while (0)
+
+//TODO удалил лишнюю функцию +
+
+#define STACK_POP_ERROR_CHECK()                         \
+do                                                      \
+{                                                       \
     *errors = 0;                                        \
                                                         \
 	StackErrorCheck(stack, errors);				        \
-												        \
-	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
-												        \
-	if (*errors != 0)							        \
-	{											        \
-		return 1;					                    \
-	}										            \
+                                                        \
+    if (stack->size <= 0)                               \
+    {                                                   \
+        *errors |= STK_UNDERFL;                         \
+    }                                                   \
+                                                        \
+    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+                                                        \
+    if (*errors != 0)                                   \
+    {                                                   \
+		return (data_t) 0xBEDABEDA;	                    \
+    }                                                   \
+} while (0)
 
-#define STACK_RESIZE_ERROR_CHECK                        \
+#define STACK_DTOR_ERROR_CHECK()                        \
+do                                                      \
+{                                                       \
     *errors = 0;                                        \
                                                         \
-	StackErrorCheck(stack, errors);				        \
-												        \
-	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
-												        \
-	if (*errors != 0)							        \
-	{											        \
-		return nullptr;					                \
-	}                                                   \
+	StackDtorCheck(stack, errors);	                    \
+                                                        \
+    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+                                                        \
+    if (*errors != 0)                                   \
+    {                                                   \
+        return 1;	                                    \
+    }                                                   \
+} while (0)
 
-#define STACK_POP_ERROR_CHECK                           \
-    *errors = 0;                                        \
-                                                        \
-	StackPopCheck(stack, errors);				        \
-												        \
-	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
-												        \
-	if (*errors != 0)							        \
-	{											        \
-		return 0xBEDABEDA;					            \
-	}                                                   \
-
-#define STACK_DTOR_ERROR_CHECK                          \
-    *errors = 0;                                        \
-                                                        \
-	StackDtorCheck(stack, errors);				        \
-												        \
-	StackDump(stack, *errors, __FILE__, __FUNCTION__);	\
-                                                        \
-	if (*errors != 0)							        \
-	{											        \
-		return 1;					                    \
-	}                                                   \
 
 int StackCtor (Stack* stack, int* errors, int capacity = START_CAPACITY);
 
@@ -131,8 +152,6 @@ int StackErrorCheck (Stack* stack, int* errors);
 int StackCtorCheck(Stack* stack, int* errors);
 
 int StackDtorCheck (Stack* stack, int* errors);
-
-int StackPopCheck (Stack* stack, int* errors);
 
 void StackDump (Stack* stack, int errors, const char* current_file, const char* current_function);
 
