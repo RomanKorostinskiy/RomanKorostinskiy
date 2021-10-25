@@ -2,15 +2,15 @@
 
 int main ()
 {
-	Stack stack = {};
+    Stack stack = {};
 
-	int error_code = 0;
+    int error_code = 0;
 
-	StackCtor(&stack, &error_code);
+    StackCtor(&stack, &error_code);
 
 //    StackStructHack(&stack);
 
-    StackDataHack(&stack);
+//    StackDataHack(&stack);
 
 #ifdef INT_DATA
     StackTestInt(&stack, &error_code);
@@ -20,7 +20,7 @@ int main ()
     StackTestFloat(&stack, &error_code);
 #endif
 
-	StackDtor(&stack, &error_code);
+    StackDtor(&stack, &error_code);
 
-	return 0;
+    return 0;
 }
