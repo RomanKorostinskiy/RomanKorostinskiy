@@ -51,6 +51,7 @@ typedef struct Stack_t
     canary_t canary_right = 0;
 } Stack;
 
+//TODO передавать функцию проверки, чтобы уменьшить количкество дефайнов
 #define STACK_CTOR_CHECK()                              \
 do                                                      \
 {                                                       \
@@ -97,7 +98,6 @@ do                                                      \
     }                                                   \
 } while (0)
 
-//TODO удалил лишнюю функцию +
 
 #define STACK_POP_ERROR_CHECK()                         \
 do                                                      \
