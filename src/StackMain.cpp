@@ -4,23 +4,21 @@ int main ()
 {
     Stack stack = {};
 
-    int error_code = 0;
-
-    StackCtor(&stack, &error_code);
+    StackCtor(&stack);
 
 //    StackStructHack(&stack);
-
+//
 //    StackDataHack(&stack);
 
 #ifdef INT_DATA
-    StackTestInt(&stack, &error_code);
+    StackTestInt(&stack);
 #endif
 
 #ifdef FLOAT_DATA
     StackTestFloat(&stack, &error_code);
 #endif
 
-    StackDtor(&stack, &error_code);
+    StackDtor(&stack);
 
     return 0;
 }

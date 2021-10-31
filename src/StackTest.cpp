@@ -1,9 +1,9 @@
 #include "../include/Stack.h"
 
 #ifdef INT_DATA
-int StackTestInt (Stack* stack, int* errors)
+int StackTestInt (Stack* stack)
 {
-    FILE* fp = fopen("../test/Test.txt", "w");
+    FILE* fp = fopen("../StackLog/Test.txt", "w");
 
     data_t pop_elem;
     data_t push_elem = 0;
@@ -21,12 +21,12 @@ int StackTestInt (Stack* stack, int* errors)
         fprintf(fp, "Before Actions | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash );
 
-        StackPush(stack, push_elem, errors);
+        StackPush(stack, push_elem);
         hash = StackHash(stack);
         fprintf(fp, "After Push     | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        pop_elem = StackPop(stack, errors);
+        pop_elem = StackPop(stack);
         hash = StackHash(stack);
         fprintf(fp, "After Pop      | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
@@ -43,7 +43,7 @@ int StackTestInt (Stack* stack, int* errors)
         fprintf(fp, "Before Actions | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        StackPush(stack, push_elem, errors);
+        StackPush(stack, push_elem);
         hash = StackHash(stack);
         fprintf(fp, "After Push     | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
@@ -60,12 +60,12 @@ int StackTestInt (Stack* stack, int* errors)
         fprintf(fp, "Before Actions | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        StackPush(stack, push_elem, errors);
+        StackPush(stack, push_elem);
         hash = StackHash(stack);
         fprintf(fp, "After Push     | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        pop_elem = StackPop(stack, errors);
+        pop_elem = StackPop(stack);
         hash = StackHash(stack);
         fprintf(fp, "After Pop      | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
@@ -81,7 +81,7 @@ int StackTestInt (Stack* stack, int* errors)
         fprintf(fp, "Before Actions | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        pop_elem = StackPop(stack, errors);
+        pop_elem = StackPop(stack);
         hash = StackHash(stack);
         fprintf(fp, "After Pop      | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
@@ -94,7 +94,7 @@ int StackTestInt (Stack* stack, int* errors)
 #endif
 
 #ifdef FLOAT_DATA
-int StackTestFloat (Stack* stack, int* errors)
+int StackTestFloat (Stack* stack)
 {
     FILE* fp = fopen("../test/Test.txt", "w");
 
@@ -114,12 +114,12 @@ int StackTestFloat (Stack* stack, int* errors)
         fprintf(fp, "Before Actions | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash );
 
-        StackPush(stack, push_elem, errors);
+        StackPush(stack, push_elem);
         hash = StackHash(stack);
         fprintf(fp, "After Push     | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        pop_elem = StackPop(stack, errors);
+        pop_elem = StackPop(stack);
         hash = StackHash(stack);
         fprintf(fp, "After Pop      | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
@@ -136,7 +136,7 @@ int StackTestFloat (Stack* stack, int* errors)
         fprintf(fp, "Before Actions | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        StackPush(stack, push_elem, errors);
+        StackPush(stack, push_elem);
         hash = StackHash(stack);
         fprintf(fp, "After Push     | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
@@ -153,12 +153,12 @@ int StackTestFloat (Stack* stack, int* errors)
         fprintf(fp, "Before Actions | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        StackPush(stack, push_elem, errors);
+        StackPush(stack, push_elem);
         hash = StackHash(stack);
         fprintf(fp, "After Push     | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        pop_elem = StackPop(stack, errors);
+        pop_elem = StackPop(stack);
         hash = StackHash(stack);
         fprintf(fp, "After Pop      | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
@@ -175,7 +175,7 @@ int StackTestFloat (Stack* stack, int* errors)
         fprintf(fp, "Before Actions | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
 
-        pop_elem = StackPop(stack, errors);
+        pop_elem = StackPop(stack);
         hash = StackHash(stack);
         fprintf(fp, "After Pop      | capacity: %d, size: %d, hash: %lu;\n",
                 stack->capacity, stack->size, hash);
@@ -189,7 +189,7 @@ int StackTestFloat (Stack* stack, int* errors)
 
 void StackStructHack (Stack* stack)
 {
-    stack->data = nullptr;
+    stack->size = 23;
 }
 
 void StackDataHack (Stack* stack)

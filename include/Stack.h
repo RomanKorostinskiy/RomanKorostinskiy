@@ -55,13 +55,13 @@ typedef struct Stack_t
 #define STACK_CTOR_CHECK()                              \
 do                                                      \
 {                                                       \
-    *errors = 0;                                        \
+    errors = 0;                                         \
                                                         \
-    StackCtorCheck(stack, errors);                      \
+    StackCtorCheck(stack);                              \
                                                         \
-    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+    StackDump(stack, __FILE__, __FUNCTION__);           \
                                                         \
-    if (*errors != 0)                                   \
+    if (errors != 0)                                    \
     {                                                   \
         return 1;                                       \
     }                                                   \
@@ -71,13 +71,13 @@ do                                                      \
 #define STACK_ERROR_CHECK()                             \
 do                                                      \
 {                                                       \
-    *errors = 0;                                        \
+    errors = 0;                                         \
                                                         \
-	StackErrorCheck(stack, errors);	                    \
+	StackErrorCheck(stack);	                            \
                                                         \
-    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+    StackDump(stack, __FILE__, __FUNCTION__);           \
                                                         \
-    if (*errors != 0)                                   \
+    if (errors != 0)                                    \
     {                                                   \
         return 1;                                       \
     }                                                   \
@@ -86,13 +86,13 @@ do                                                      \
 #define STACK_RESIZE_ERROR_CHECK()                      \
 do                                                      \
 {                                                       \
-    *errors = 0;                                        \
+    errors = 0;                                         \
                                                         \
-	StackErrorCheck(stack, errors);	                    \
+	StackErrorCheck(stack);	                            \
                                                         \
-    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+    StackDump(stack, __FILE__, __FUNCTION__);           \
                                                         \
-    if (*errors != 0)                                   \
+    if (errors != 0)                                    \
     {                                                   \
         return nullptr;	                                \
     }                                                   \
@@ -102,18 +102,18 @@ do                                                      \
 #define STACK_POP_ERROR_CHECK()                         \
 do                                                      \
 {                                                       \
-    *errors = 0;                                        \
+    errors = 0;                                         \
                                                         \
-	StackErrorCheck(stack, errors);				        \
+	StackErrorCheck(stack);				                \
                                                         \
     if (stack->size <= 0)                               \
     {                                                   \
-        *errors |= STK_UNDERFL;                         \
+        errors |= STK_UNDERFL;                          \
     }                                                   \
                                                         \
-    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+    StackDump(stack, __FILE__, __FUNCTION__);           \
                                                         \
-    if (*errors != 0)                                   \
+    if (errors != 0)                                    \
     {                                                   \
 		return (data_t) 0xBEDABEDA;	                    \
     }                                                   \
@@ -122,42 +122,42 @@ do                                                      \
 #define STACK_DTOR_ERROR_CHECK()                        \
 do                                                      \
 {                                                       \
-    *errors = 0;                                        \
+    errors = 0;                                         \
                                                         \
-	StackDtorCheck(stack, errors);	                    \
+	StackDtorCheck(stack);	                            \
                                                         \
-    StackDump(stack, *errors, __FILE__, __FUNCTION__);  \
+    StackDump(stack, __FILE__, __FUNCTION__);           \
                                                         \
-    if (*errors != 0)                                   \
+    if (errors != 0)                                    \
     {                                                   \
         return 1;	                                    \
     }                                                   \
 } while (0)
 
 
-int StackCtor (Stack* stack, int* errors, int capacity = START_CAPACITY);
+int StackCtor (Stack* stack, int capacity = START_CAPACITY);
 
-int StackDtor (Stack* stack, int* errors);
+int StackDtor (Stack* stack);
 
-int StackPush (Stack* stack, data_t value, int* errors);
+int StackPush (Stack* stack, data_t value);
 
-data_t StackPop (Stack* stack, int* errors);
+data_t StackPop (Stack* stack);
 
-data_t* StackResize (Stack* stack, int* errors);
+data_t* StackResize (Stack* stack);
 
 size_t StackHash (Stack* stack);
 
-int StackErrorCheck (Stack* stack, int* errors);
+int StackErrorCheck (Stack* stack);
 
-int StackCtorCheck(Stack* stack, int* errors);
+int StackCtorCheck(Stack* stack);
 
-int StackDtorCheck (Stack* stack, int* errors);
+int StackDtorCheck (Stack* stack);
 
-void StackDump (Stack* stack, int errors, const char* current_file, const char* current_function);
+void StackDump (Stack* stack, const char* current_file, const char* current_function);
 
-int StackTestInt (Stack* stack, int* errors);
+int StackTestInt (Stack* stack);
 
-int StackTestFloat (Stack* stack, int* errors);
+int StackTestFloat (Stack* stack);
 
 void StackStructHack (Stack* stack);
 
