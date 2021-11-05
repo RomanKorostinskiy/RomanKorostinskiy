@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/roman/CS/C/Huawei/Stack/include/Stack.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+limits.h
+-
+
+/home/roman/CS/C/Huawei/Stack/src/StackTest.cpp
+../include/Stack.h
+/home/roman/CS/C/Huawei/Stack/include/Stack.h
+

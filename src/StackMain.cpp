@@ -15,7 +15,7 @@ int main ()
 #endif
 
 #ifdef FLOAT_DATA
-    StackTestFloat(&stack, &error_code);
+    StackTestFloat(&stack);
 #endif
 
     StackDtor(&stack);

@@ -19,7 +19,7 @@ enum Stack_errors
     HASH_BAD         = 256,
 };
 
-#define INT_DATA
+#define FLOAT_DATA
 
 #ifdef FLOAT_DATA
 typedef double data_t;
