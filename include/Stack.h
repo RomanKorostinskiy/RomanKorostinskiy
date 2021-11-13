@@ -52,28 +52,12 @@ typedef struct Stack_t
 } Stack;
 
 //TODO передавать функцию проверки, чтобы уменьшить количкество дефайнов
-#define STACK_CTOR_CHECK()                              \
+#define STACK_GENERAL_CHECK(check_function)             \
 do                                                      \
 {                                                       \
     errors = 0;                                         \
                                                         \
-    StackCtorCheck(stack);                              \
-                                                        \
-    StackDump(stack, __FILE__, __FUNCTION__);           \
-                                                        \
-    if (errors != 0)                                    \
-    {                                                   \
-        return 1;                                       \
-    }                                                   \
-} while (0)
-
-
-#define STACK_ERROR_CHECK()                             \
-do                                                      \
-{                                                       \
-    errors = 0;                                         \
-                                                        \
-	StackErrorCheck(stack);	                            \
+    check_function;                                     \
                                                         \
     StackDump(stack, __FILE__, __FUNCTION__);           \
                                                         \
@@ -116,21 +100,6 @@ do                                                      \
     if (errors != 0)                                    \
     {                                                   \
 		return (data_t) 0xBEDABEDA;	                    \
-    }                                                   \
-} while (0)
-
-#define STACK_DTOR_ERROR_CHECK()                        \
-do                                                      \
-{                                                       \
-    errors = 0;                                         \
-                                                        \
-	StackDtorCheck(stack);	                            \
-                                                        \
-    StackDump(stack, __FILE__, __FUNCTION__);           \
-                                                        \
-    if (errors != 0)                                    \
-    {                                                   \
-        return 1;	                                    \
     }                                                   \
 } while (0)
 

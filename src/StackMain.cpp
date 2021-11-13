@@ -6,6 +6,8 @@ int main ()
 
     StackCtor(&stack);
 
+    StackCtor(&stack);
+
 //    StackStructHack(&stack);
 //
 //    StackDataHack(&stack);

@@ -12,7 +12,7 @@ int errors = 0;
 
 int StackCtor (Stack* stack, int capacity)
 {
-	STACK_CTOR_CHECK();
+    STACK_GENERAL_CHECK(StackCtorCheck(stack));
 
     if (capacity <= 0)
         return 1;
@@ -41,14 +41,14 @@ int StackCtor (Stack* stack, int capacity)
     stack->hash = StackHash(stack);
 #endif
 
-    STACK_ERROR_CHECK();
+    STACK_GENERAL_CHECK(StackErrorCheck(stack));
 
 	return 0;
 }
 
 int StackDtor (Stack* stack)
 {
-    STACK_DTOR_ERROR_CHECK();
+    STACK_GENERAL_CHECK(StackDtorCheck(stack));
 
     memset (stack->data, (int)0xF0F0F0F0, stack->capacity * sizeof(data_t));
 
@@ -72,7 +72,7 @@ int StackDtor (Stack* stack)
 
 int StackPush (Stack* stack, data_t value)
 {
-    STACK_ERROR_CHECK();
+    STACK_GENERAL_CHECK(StackErrorCheck(stack));
 
     if (stack->size == stack->capacity)
     {
@@ -85,7 +85,7 @@ int StackPush (Stack* stack, data_t value)
     stack->hash = StackHash(stack);
 #endif
 
-    STACK_ERROR_CHECK();
+    STACK_GENERAL_CHECK(StackErrorCheck(stack));
 
 	return 0;
 }
@@ -109,7 +109,7 @@ data_t StackPop (Stack* stack)
     stack->hash = StackHash(stack);
 #endif
 
-    STACK_ERROR_CHECK();
+    STACK_GENERAL_CHECK(StackErrorCheck(stack));
 
 	return value;
 }

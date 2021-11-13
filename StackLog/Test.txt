@@ -74,97 +74,97 @@ Push Elem = 10.000000
 
 #2
 Before Actions | capacity: 1, size: 1, hash: 4008949728794515;
-After Push     | capacity: 2, size: 2, hash: 148331036168204336;
+After Push     | capacity: 2, size: 2, hash: 148331036168378384;
 Push Elem = 11.000000
 
 #3
-Before Actions | capacity: 2, size: 2, hash: 148331036168204336;
-After Push     | capacity: 4, size: 3, hash: 150999757649598159;
+Before Actions | capacity: 2, size: 2, hash: 148331036168378384;
+After Push     | capacity: 4, size: 3, hash: 150999757649772207;
 Push Elem = 12.000000
 
 #4
-Before Actions | capacity: 4, size: 3, hash: 150999757649598159;
-After Push     | capacity: 4, size: 4, hash: 150999757650256649;
+Before Actions | capacity: 4, size: 3, hash: 150999757649772207;
+After Push     | capacity: 4, size: 4, hash: 150999757650430697;
 Push Elem = 13.000000
 
 #5
-Before Actions | capacity: 4, size: 4, hash: 150999757650256649;
-After Push     | capacity: 8, size: 5, hash: 6350556895090474540;
+Before Actions | capacity: 4, size: 4, hash: 150999757650430697;
+After Push     | capacity: 8, size: 5, hash: 6350556895090648588;
 Push Elem = 14.000000
 
 #6
-Before Actions | capacity: 8, size: 5, hash: 6350556895090474540;
-After Push     | capacity: 8, size: 6, hash: 6350556896130633896;
+Before Actions | capacity: 8, size: 5, hash: 6350556895090648588;
+After Push     | capacity: 8, size: 6, hash: 6350556896130807944;
 Push Elem = 15.000000
 
 #7
-Before Actions | capacity: 8, size: 6, hash: 6350556896130633896;
-After Push     | capacity: 8, size: 7, hash: 6350556896160620473;
+Before Actions | capacity: 8, size: 6, hash: 6350556896130807944;
+After Push     | capacity: 8, size: 7, hash: 6350556896160794521;
 Push Elem = 16.000000
 
 #8
-Before Actions | capacity: 8, size: 7, hash: 6350556896160620473;
-After Push     | capacity: 8, size: 8, hash: 6350556896161481575;
+Before Actions | capacity: 8, size: 7, hash: 6350556896160794521;
+After Push     | capacity: 8, size: 8, hash: 6350556896161655623;
 Push Elem = 17.000000
 
 #9
-Before Actions | capacity: 8, size: 8, hash: 6350556896161481575;
-After Push     | capacity: 16, size: 9, hash: 11564652114604801474;
+Before Actions | capacity: 8, size: 8, hash: 6350556896161655623;
+After Push     | capacity: 16, size: 9, hash: 11564652114604975522;
 Push Elem = 18.000000
 
 #10
-Before Actions | capacity: 16, size: 9, hash: 11564652114604801474;
-After Push     | capacity: 16, size: 10, hash: 11567121387660907938;
+Before Actions | capacity: 16, size: 9, hash: 11564652114604975522;
+After Push     | capacity: 16, size: 10, hash: 11567121387661081986;
 Push Elem = 19.000000
 
 #11
-Before Actions | capacity: 16, size: 10, hash: 11567121387660907938;
-After Push     | capacity: 16, size: 11, hash: 11567191637249986359;
+Before Actions | capacity: 16, size: 10, hash: 11567121387661081986;
+After Push     | capacity: 16, size: 11, hash: 11567191637250160407;
 Push Elem = 20.000000
 
 #12
-Before Actions | capacity: 16, size: 11, hash: 11567191637249986359;
-After Push     | capacity: 16, size: 12, hash: 11567193630819406153;
+Before Actions | capacity: 16, size: 11, hash: 11567191637250160407;
+After Push     | capacity: 16, size: 12, hash: 11567193630819580201;
 Push Elem = 21.000000
 
 #13
-Before Actions | capacity: 16, size: 12, hash: 11567193630819406153;
-After Push     | capacity: 16, size: 13, hash: 11567193687265387152;
+Before Actions | capacity: 16, size: 12, hash: 11567193630819580201;
+After Push     | capacity: 16, size: 13, hash: 11567193687265561200;
 Push Elem = 22.000000
 
 #14
-Before Actions | capacity: 16, size: 13, hash: 11567193687265387152;
-After Push     | capacity: 16, size: 14, hash: 11567193688860298164;
+Before Actions | capacity: 16, size: 13, hash: 11567193687265561200;
+After Push     | capacity: 16, size: 14, hash: 11567193688860472212;
 Push Elem = 23.000000
 
 #15
-Before Actions | capacity: 16, size: 14, hash: 11567193688860298164;
-After Push     | capacity: 16, size: 15, hash: 11567193688905278029;
+Before Actions | capacity: 16, size: 14, hash: 11567193688860472212;
+After Push     | capacity: 16, size: 15, hash: 11567193688905452077;
 Push Elem = 24.000000
 
 #16
-Before Actions | capacity: 16, size: 15, hash: 11567193688905278029;
-After Push     | capacity: 16, size: 16, hash: 11567193688906544355;
+Before Actions | capacity: 16, size: 15, hash: 11567193688905452077;
+After Push     | capacity: 16, size: 16, hash: 11567193688906718403;
 Push Elem = 25.000000
 
 #17
-Before Actions | capacity: 16, size: 16, hash: 11567193688906544355;
-After Push     | capacity: 32, size: 17, hash: 16233977259450942702;
+Before Actions | capacity: 16, size: 16, hash: 11567193688906718403;
+After Push     | capacity: 32, size: 17, hash: 16233977259451116750;
 Push Elem = 26.000000
 
 #18
-Before Actions | capacity: 32, size: 17, hash: 16233977259450942702;
-After Push     | capacity: 32, size: 18, hash: 775224009463854358;
+Before Actions | capacity: 32, size: 17, hash: 16233977259451116750;
+After Push     | capacity: 32, size: 18, hash: 775224009464028406;
 Push Elem = 27.000000
 
 #19
-Before Actions | capacity: 32, size: 18, hash: 775224009463854358;
-After Push     | capacity: 32, size: 19, hash: 2779353265449862707;
+Before Actions | capacity: 32, size: 18, hash: 775224009464028406;
+After Push     | capacity: 32, size: 19, hash: 2779353265450036755;
 Push Elem = 28.000000
 
 #20
-Before Actions | capacity: 32, size: 19, hash: 2779353265449862707;
-After Push     | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 19, hash: 2779353265450036755;
+After Push     | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 29.000000
 
 
@@ -172,63 +172,63 @@ Push Elem = 29.000000
 
 
 #1
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 1643556262072863836;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 1643556262073037884;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 30.000000, Pop Elem = 30.000000
 
 #2
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 11693744286819974917;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 11693744286820148965;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 31.000000, Pop Elem = 31.000000
 
 #3
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 3297188237857534382;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 3297188237857708430;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 32.000000, Pop Elem = 32.000000
 
 #4
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 13347376262604645463;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 13347376262604819511;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 33.000000, Pop Elem = 33.000000
 
 #5
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 4950820213642204928;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 4950820213642378976;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 34.000000, Pop Elem = 34.000000
 
 #6
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 15001008238389316009;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 15001008238389490057;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 35.000000, Pop Elem = 35.000000
 
 #7
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 6604452189426875474;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 6604452189427049522;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 36.000000, Pop Elem = 36.000000
 
 #8
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 16654640214173986555;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 16654640214174160603;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 37.000000, Pop Elem = 37.000000
 
 #9
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 8258084165211546020;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 8258084165211720068;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 38.000000, Pop Elem = 38.000000
 
 #10
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Push     | capacity: 32, size: 21, hash: 18308272189958657101;
-After Pop      | capacity: 32, size: 20, hash: 13732564772721908877;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Push     | capacity: 32, size: 21, hash: 18308272189958831149;
+After Pop      | capacity: 32, size: 20, hash: 13732564772722082925;
 Push Elem = 39.000000, Pop Elem = 39.000000
 
 
@@ -236,51 +236,51 @@ Push Elem = 39.000000, Pop Elem = 39.000000
 
 
 #1
-Before Actions | capacity: 32, size: 20, hash: 13732564772721908877;
-After Pop      | capacity: 32, size: 19, hash: 2779353265449862707;
+Before Actions | capacity: 32, size: 20, hash: 13732564772722082925;
+After Pop      | capacity: 32, size: 19, hash: 2779353265450036755;
 Pop Elem = 29.000000
 
 #2
-Before Actions | capacity: 32, size: 19, hash: 2779353265449862707;
-After Pop      | capacity: 32, size: 18, hash: 775224009463854358;
+Before Actions | capacity: 32, size: 19, hash: 2779353265450036755;
+After Pop      | capacity: 32, size: 18, hash: 775224009464028406;
 Pop Elem = 28.000000
 
 #3
-Before Actions | capacity: 32, size: 18, hash: 775224009463854358;
-After Pop      | capacity: 32, size: 17, hash: 16233977259450942702;
+Before Actions | capacity: 32, size: 18, hash: 775224009464028406;
+After Pop      | capacity: 32, size: 17, hash: 16233977259451116750;
 Pop Elem = 27.000000
 
 #4
-Before Actions | capacity: 32, size: 17, hash: 16233977259450942702;
-After Pop      | capacity: 32, size: 16, hash: 11571669650625517667;
+Before Actions | capacity: 32, size: 17, hash: 16233977259451116750;
+After Pop      | capacity: 32, size: 16, hash: 11571669650625691715;
 Pop Elem = 26.000000
 
 #5
-Before Actions | capacity: 32, size: 16, hash: 11571669650625517667;
-After Pop      | capacity: 32, size: 15, hash: 12431297310557305101;
+Before Actions | capacity: 32, size: 16, hash: 11571669650625691715;
+After Pop      | capacity: 32, size: 15, hash: 12431297310557479149;
 Pop Elem = 25.000000
 
 #6
-Before Actions | capacity: 32, size: 15, hash: 12431297310557305101;
-After Pop      | capacity: 32, size: 14, hash: 2382434829173381236;
+Before Actions | capacity: 32, size: 15, hash: 12431297310557479149;
+After Pop      | capacity: 32, size: 14, hash: 2382434829173555284;
 Pop Elem = 24.000000
 
 #7
-Before Actions | capacity: 32, size: 14, hash: 2382434829173381236;
-After Pop      | capacity: 32, size: 13, hash: 397728425939384848;
+Before Actions | capacity: 32, size: 14, hash: 2382434829173555284;
+After Pop      | capacity: 32, size: 13, hash: 397728425939558896;
 Pop Elem = 23.000000
 
 #8
-Before Actions | capacity: 32, size: 13, hash: 397728425939384848;
-After Pop      | capacity: 32, size: 12, hash: 15171809277275881033;
+Before Actions | capacity: 32, size: 13, hash: 397728425939558896;
+After Pop      | capacity: 32, size: 12, hash: 15171809277276055081;
 Pop Elem = 22.000000
 
 #9
-Before Actions | capacity: 32, size: 12, hash: 15171809277275881033;
-After Pop      | capacity: 32, size: 11, hash: 7040835045640468087;
+Before Actions | capacity: 32, size: 12, hash: 15171809277276055081;
+After Pop      | capacity: 32, size: 11, hash: 7040835045640642135;
 Pop Elem = 21.000000
 
 #10
-Before Actions | capacity: 32, size: 11, hash: 7040835045640468087;
-After Pop      | capacity: 32, size: 10, hash: 6006115643040405986;
+Before Actions | capacity: 32, size: 11, hash: 7040835045640642135;
+After Pop      | capacity: 32, size: 10, hash: 6006115643040580034;
 Pop Elem = 20.000000

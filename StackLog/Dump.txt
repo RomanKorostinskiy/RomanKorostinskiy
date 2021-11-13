@@ -1,0 +1,10 @@
+
+______________________________
+
+-In file: /home/roman/CS/C/Huawei/Stack/src/StackFunc.cpp; In function: StackCtor
+ Stack already constructed: 32
+
+ Stack: 
+
+ Other data: 
+[0]: 0.000000
