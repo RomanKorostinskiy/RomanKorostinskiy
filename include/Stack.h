@@ -33,10 +33,10 @@ typedef size_t canary_t;
 typedef size_t hash_t;
 
 
-extern const int    START_CAPACITY;
-extern const int    CAPACITY_STEP;
-extern const size_t CANARY_CONSTANT;
-extern const data_t*   UNAVAILABLE_ADR;
+extern const int     START_CAPACITY;
+extern const int     CAPACITY_STEP;
+extern const size_t  CANARY_CONSTANT;
+extern const data_t* UNAVAILABLE_ADR;
 
 typedef struct Stack_t
 {

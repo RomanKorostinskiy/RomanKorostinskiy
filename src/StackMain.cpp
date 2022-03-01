@@ -6,12 +6,6 @@ int main ()
 
     StackCtor(&stack);
 
-    StackCtor(&stack);
-
-//    StackStructHack(&stack);
-//
-//    StackDataHack(&stack);
-
 #ifdef INT_DATA
     StackTestInt(&stack);
 #endif

@@ -1,9 +1,9 @@
 #include "../include/Stack.h"
 
-const int    START_CAPACITY  = 1;
-const int    CAPACITY_STEP   = 2;
-const size_t CANARY_CONSTANT = 0xB00BA555;
-const data_t*   UNAVAILABLE_ADR = (data_t*) 1;
+const int     START_CAPACITY  = 1;
+const int     CAPACITY_STEP   = 2;
+const size_t  CANARY_CONSTANT = 0xB00BA555;
+const data_t* UNAVAILABLE_ADR = (data_t*) 1;
 
 int errors = 0;
 
@@ -114,7 +114,7 @@ data_t StackPop (Stack* stack)
 	return value;
 }
 
-data_t* StackResize (Stack* stack)
+data_t* StackResize (Stack* stack) //TODO изменить, чтобы не приходилось возвращать новый адрес
 {
     STACK_RESIZE_ERROR_CHECK();
 
